@@ -1,11 +1,23 @@
 package com.Vlad;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("The sum is " + sumOdd(1, 100));
-        System.out.println("Booyakasha");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter a low range boundary: ");
+        int start = scanner.nextInt();
+        System.out.println("Enter an upper range boundary: ");
+        int end = scanner.nextInt();
+        int result = sumOdd(start, end);
+        if (result > 0) {
+            System.out.println("The sum of odd numbers in given range is " + sumOdd(start, end));
+            System.out.println("Booyakasha!");
+        } else {
+            System.out.println("Invalid input");
+        }
 
     }
 
@@ -17,16 +29,13 @@ public class Main {
     }
 
     public static int sumOdd(int start, int end) {
-        if (end < start || start < 0 || end < 0){
+        if (end < start || start < 0){
             return -1;
         }
         int sum = 0;
         for (int i = start; i < end; i++) {
             if (isOdd(i)) {
                 sum += i;
-                System.out.println(sum);
-            } else {
-                System.out.println(" not odd "+i);
             }
         }
         return sum;
